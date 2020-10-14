@@ -18,7 +18,7 @@ Het programma pdf_downloader.py download pdf-bestanden van het internet.
 Het programma vote_scraper.py schraapt de stemresultaten uit het pdf-bestand van een motie en geeft deze terug aan het programma scraper.py.
 
 # TO DO LIST
-- Momenteel wordt telkens alle moties geschraapt. Je moet de begindatum kunnen instellen.
+- Momenteel worden telkens alle moties geschraapt. Je zou de begindatum moeten kunnen instellen.
 - De tekst inhoud van de moties wordt niet geschraapt omdat dit te onregelmatig is in de pdf-bestanden.
 - De namen van de indieners van de motie worden niet geschraapt
 - Het CSV-bestand en het excel-bestand worden niet automatisch gemaakt.
