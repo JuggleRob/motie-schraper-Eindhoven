@@ -22,3 +22,4 @@ Het programma vote_scraper.py schraapt de stemresultaten uit het pdf-bestand van
 - De tekst inhoud van de moties wordt niet geschraapt omdat dit te onregelmatig is in de pdf-bestanden.
 - De namen van de indieners van de motie worden niet geschraapt
 - Het CSV-bestand en het excel-bestand worden niet automatisch gemaakt.
+- Door onregelmatigheden in de PDF-bestand, lukt het vote_scraper.py niet altijd de stemmen te tellen. Indien dit gebeurd, geeft het programma aan dat het handmatig genoteerd moet worden.
