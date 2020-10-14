@@ -1,13 +1,15 @@
 # Het doel van dit programma
-Dit project schraapt alle moties van de gemeente Eindhoven en maakt er een overzichtelijk JSON-bestand van.
+Dit project verzamelt/schraapt alle moties van de gemeente Eindhoven en maakt er een overzichtelijk JSON-bestand van.
 
 # Hoe gebruik je dit programma:
-In de terminal/command prompt voer het volgende commando in:
+In de terminal/command prompt voer je het volgende commando in:
+
 python3 scraper.py
+
 Dit roept het programma aan te beginnen. Het programma scraper.py roept automatisch alle andere programma's aan die nodig zijn. Als het programma klaar is, heb je eens JSON-bestand waar alle moties in staan.
 
 # Wat doet scraper.py ?
-Het programma scraper.py verzamelt (schraapt) alle informatie uit een tabel die te vinden is op de website https://eindhoven.parlaeus.nl/user/motie . Dit doet die voor elk maand uit elk jaar. Omdat niet alle benodigde informatie te vinden is in deze tabel, zijn er andere programma's nodig om deze informatie te verzamelen.
+Het programma scraper.py verzamelt/schraapt alle informatie uit een tabel die te vinden is op de website https://eindhoven.parlaeus.nl/user/motie . Dit doet die voor elk maand uit elk jaar. Omdat niet alle benodigde informatie te vinden is in deze tabel, zijn er andere programma's nodig om deze informatie te verzamelen.
 
 # Wat doet pdf_downloader.py ? 
 Het programma pdf_downloader.py download pdf-bestanden van het internet.
