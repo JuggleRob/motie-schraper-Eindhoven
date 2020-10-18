@@ -69,20 +69,24 @@ def create_motie_dictionary(url):
             print(motie_info)
         print()
 
-# Itereert over alle moties van elke maand in elk jaar
-for year in range(2018,2022):
-    for month in range(1,13):
-        page_url = base_url + "/user/motie/mn=" + str(month) + "/yr=" + str(year)
-        #get_pdf_links_from_page(page_url)
-        try:
-            create_motie_dictionary(page_url)
-        except Exception as e:
-            print(e)
-            print("Het maandnummer " + str(month) + " in het jaar " + str(year) + " heeft geen moties.")
-
 def save_data(title, data):
     with open(title, "w", encoding='utf-8') as outfile:  
         json.dump(data, outfile, ensure_ascii=False, indent=2) 
 
-save_data("moties.json", moties)
-print("Aantal moties: " + str(len(moties)))
+def main():
+    # Itereert over alle moties van elke maand in elk jaar
+    for year in range(2018,2022):
+        for month in range(1,13):
+            page_url = base_url + "/user/motie/mn=" + str(month) + "/yr=" + str(year)
+            #get_pdf_links_from_page(page_url)
+            try:
+                create_motie_dictionary(page_url)
+            except Exception as e:
+                print(e)
+                print("Het maandnummer " + str(month) + " in het jaar " + str(year) + " heeft geen moties.")
+
+    save_data("moties.json", moties)
+    print("Aantal moties: " + str(len(moties)))
+
+if __name__ == "__main__":
+    main()
