@@ -21,7 +21,6 @@ De module pdf_downloader.py download pdf-bestanden van het internet.
 De module outputJSON.py slaat de geschraapte moties in JSON-formaat op in de folder Data.
 
 # TO DO LIST
-- Als je run.py runt meerdere keren runt, komen er duplicaten in het moties.json bestand
 - De tekst inhoud van de moties wordt niet geschraapt omdat dit te onregelmatig is in de pdf-bestanden.
 - De namen van de indieners van de motie worden niet geschraapt
 - Het CSV-bestand en het excel-bestand worden niet automatisch gemaakt.
