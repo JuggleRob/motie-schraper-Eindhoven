@@ -1,4 +1,4 @@
-from .outputJSON import saveJSON
+from .outputJSON import write_to_JSON_file
 from .pdf_downloader import download_pdf_file
 
 moties = []
@@ -19,6 +19,6 @@ def scrape(startYear, startMonth):
                 print(e)
                 print("Het maandnummer " + str(month) + " in het jaar " + str(year) + " heeft geen moties.")
 
-    saveJSON("Data/moties.json", moties)
+    write_to_JSON_file("Data/moties.json", moties)
     print("Aantal moties geschraapt: " + str(len(moties)))
     return
