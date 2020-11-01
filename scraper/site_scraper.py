@@ -1,24 +1,8 @@
-##########################
-# Made by Rob van Heijst #
-##########################
-
-import json
 import os
 import requests
 from bs4 import BeautifulSoup as bs
-import pdf_downloader
-import vote_scraper
+from scraper import pdf_downloader, pdf_scraper, base_url, moties
 import pathlib
-
-base_url = "https://eindhoven.parlaeus.nl"
-moties =  []
-
-#### TO DO LIST ####
-# -naam indiener   #
-# -tekst motie     #
-# -handm. datum-   #
-#    instellen     #
-####################
 
 # Om de link naar het PDF-bestand te krijgen heb je twee links nodig
 # De eerste link verwijst je naar een algemene info pagina zoals eindhoven.parlaeus.nl/user/motie/action=view/id=357.
@@ -33,7 +17,7 @@ def get_bron_pdf(url):
 def scrape_votes(url, title):
     path = pathlib.Path(__file__).parent.absolute().joinpath(title + ".pdf")
     pdf_downloader.download_pdf_file(url, path)
-    results = vote_scraper.count_votes(path)
+    results = pdf_scraper.count_votes(path)
     os.remove(path)
     return results
 
@@ -68,25 +52,3 @@ def create_motie_dictionary(url):
             moties.append(motie_info)
             print(motie_info)
         print()
-
-def save_data(title, data):
-    with open(title, "w", encoding='utf-8') as outfile:  
-        json.dump(data, outfile, ensure_ascii=False, indent=2) 
-
-def main():
-    # Itereert over alle moties van elke maand in elk jaar
-    for year in range(2018,2022):
-        for month in range(1,13):
-            page_url = base_url + "/user/motie/mn=" + str(month) + "/yr=" + str(year)
-            #get_pdf_links_from_page(page_url)
-            try:
-                create_motie_dictionary(page_url)
-            except Exception as e:
-                print(e)
-                print("Het maandnummer " + str(month) + " in het jaar " + str(year) + " heeft geen moties.")
-
-    save_data("moties.json", moties)
-    print("Aantal moties: " + str(len(moties)))
-
-if __name__ == "__main__":
-    main()

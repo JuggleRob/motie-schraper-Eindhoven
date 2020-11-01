@@ -1,11 +1,7 @@
-##########################
-# Made by Rob van Heijst #
-##########################
-
 from PyPDF2 import PdfFileReader
 from pathlib import Path
 import re
-import pdf_downloader
+from scraper import pdf_downloader
 
 # Positive votes are in favour, negative votes are against the motie
 votes_in_favour = {

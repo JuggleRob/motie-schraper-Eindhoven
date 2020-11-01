@@ -1,7 +1,3 @@
-##########################
-# Made by Rob van Heijst #
-##########################
-
 import requests
 import pathlib
 
