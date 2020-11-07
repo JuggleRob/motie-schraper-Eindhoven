@@ -27,11 +27,11 @@ def scrape(startYear, startMonth):
 
     dataframe = pd.DataFrame(moties)
     with open('moties.csv', 'a') as f:
-        dataframe.to_csv(f, header=f.tell()==0)
+        dataframe.to_csv(f, header=f.tell()==0, index=False)
     df = pd.read_csv('moties.csv')
     df.drop_duplicates(subset=['titel'], inplace=True)
     df.to_csv('moties.csv', index=False)
-
+    print(f'\nAantal moties geschraapt: {len(moties)}')
     print('\nAlle geschraapte moties zitten nu in het bestand moties.csv')
 
     return
