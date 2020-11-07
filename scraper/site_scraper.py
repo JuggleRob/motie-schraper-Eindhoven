@@ -21,13 +21,19 @@ def scrape_votes(url, title):
     os.remove(path)
     return results
 
+def extract(url):
+    headers = { 'user-agent' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:82.0) Gecko/20100101 Firefox/82.0'}
+    site_gemeente = requests.get(url, headers)
+    soup = bs(site_gemeente.content, 'html.parser')
+    return soup
 
 def create_motie_dictionary(url):
-    start_page = requests.get(url)
-    start_soup = bs(start_page.content, features='html.parser')
-    table = start_soup.find('table')
+    soup = extract(url)
+    table = soup.find('table')
+    tablerows = table.find_all('tr')
 
-    for row in table.find_all('tr'):
+    for row in tablerows:
+    
         cells = row.find_all('td')
         if len(cells) == 9:
             bron = get_bron_pdf(base_url + cells[0].a['href'])
@@ -35,20 +41,26 @@ def create_motie_dictionary(url):
             datum = cells[2].text
             indieners = cells[6].text.replace(' ', '').split(',') # Enkel partij, nog niet de personen
             uitslag = cells[7].text 
-            stemmen_voor = []
-            stemmen_tegen = []
+            voor = []
+            tegen = []
+            unaniem = "nee"
             if uitslag == "Verworpen" or uitslag == "Aangenomen":
                 stemgedrag = scrape_votes(bron, titel)
-                stemmen_voor = stemgedrag[0]
-                stemmen_tegen = stemgedrag[1]
-            motie_info = {}
-            motie_info['bron'] = bron
-            motie_info['titel'] = titel
-            motie_info['datum'] = datum
-            motie_info['indieners'] = indieners
-            motie_info['uitslag'] = uitslag
-            motie_info['stemmen voor'] = stemmen_voor
-            motie_info['stemmen tegen'] = stemmen_tegen
+                voor = stemgedrag[0]
+                tegen = stemgedrag[1]
+                if voor[0] == 'unaniem':
+                    unaniem = "ja"
+                    voor = []
+                    tegen = []
+            motie_info = {
+                'bron' : bron,
+                'titel' : titel,
+                'datum' : datum,
+                'indieners' : indieners,
+                'uitslag' : uitslag,
+                'voor' : voor,
+                'tegen' : tegen,
+                'unaniem' : unaniem
+            }
             moties.append(motie_info)
-            print(motie_info)
-        print()
+            print(f'\033[92m Motie geschraapt: {titel} \033[0m')

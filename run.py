@@ -11,7 +11,7 @@ def main():
     month = int(input("Moties laden vanaf maandnummer (MM): "))
     if month < 1:
         month = 1
-    print(f"Moties vanaf 01-{month}-{year} worden geschraapt.")
+    print(f"\nMoties vanaf 01-{month}-{year} worden geschraapt.\n")
     scraper.scrape(year, month)
 
 if __name__ == "__main__":

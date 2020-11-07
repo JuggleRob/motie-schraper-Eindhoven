@@ -6,5 +6,5 @@ def download_pdf_file(url, path):
 		pdf = requests.get(url)
 		open(path, 'wb').write(pdf.content)
 	except:
-		print("Failed downloading the pdf: " + url)
+		print("\033[91mFailed downloading the pdf: " + url + "\033[0m")
 	return

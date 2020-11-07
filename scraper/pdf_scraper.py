@@ -68,7 +68,7 @@ def count_votes(path):
         print("Het automatisch stemmentellen van motie " + str(path) + " is mislukt. Doe dit handmatig.")
         print("De string Tegen: staat niet op de pdf-pagina")
         print("Er is de volgende foutmelding: " + e)
-        return [["vul handmatig in"],["vul handmatig in"]]
+        return [["vul handmatig in:-1"],["vul handmatig in:-1"]]
 
     # these arrays will be returned with the votes
     result_in_favour= []
@@ -102,8 +102,8 @@ def count_votes(path):
             result_against.append(party + ":" + votes_against[party])
 
     if len(result_in_favour) == 0 or len(result_against) == 0:
-        print("Er is iets fout gegaan met tellen bij de motie: " + str(path))
-        print("Tel stemmen handmatig")
-        return [["vul handmatig in"],["vul handmatig in"]]
+        print("\n\033[91mEr is iets fout gegaan met tellen bij de motie: " + str(path))
+        print("Tel stemmen handmatig\033[0m\n")
+        return [["vul handmatig in:-1"],["vul handmatig in:-1"]]
     else:
         return [result_in_favour, result_against]

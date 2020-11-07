@@ -1,5 +1,5 @@
 # Het doel van dit programma
-Dit project verzamelt/schraapt alle moties van de gemeente Eindhoven en maakt er een overzichtelijk JSON-bestand van.
+Dit project verzamelt/schraapt alle moties van de gemeente Eindhoven en maakt er een overzichtelijk CSV-bestand van. Dit CSV-bestand kan geopend worden in Excel.
 
 # Hoe gebruik je dit programma:
 In de terminal/command prompt voer je het volgende commando in:
@@ -17,11 +17,7 @@ De module pdf_scraper.py schraapt de stemresultaten uit het pdf-bestand van een 
 # Wat doet pdf_downloader.py ? 
 De module pdf_downloader.py download pdf-bestanden van het internet.
 
-# Wat doet outputJSON.py ?
-De module outputJSON.py slaat de geschraapte moties in JSON-formaat op in de folder Data.
-
 # TO DO LIST
 - De tekst inhoud van de moties wordt niet geschraapt omdat dit te onregelmatig is in de pdf-bestanden.
 - De namen van de indieners van de motie worden niet geschraapt
-- Het CSV-bestand en het excel-bestand worden niet automatisch gemaakt.
 - Door onregelmatigheden in de PDF-bestand, lukt het pdf_scraper.py niet altijd de stemmen te tellen. Indien dit gebeurd, geeft het programma aan dat het handmatig genoteerd moet worden.
