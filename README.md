@@ -6,7 +6,7 @@ In de terminal/command prompt voer je het volgende commando in:
 
 python3 run.py
 
-Dit programma schraapt alle informatie van de website van gemeente Eindhoven en slaat het op als een JSON-bestand in de folder Data.
+Dit programma schraapt alle informatie van de website van gemeente Eindhoven en slaat het op als een CSV-bestand.
 
 # Wat doet site_scraper.py ?
 De module scraper.py schraapt alle informatie uit een tabel die te vinden is op de website https://eindhoven.parlaeus.nl/user/motie . Dit doet die voor elk maand uit elk jaar. Omdat niet alle benodigde informatie te vinden is in deze tabel, zijn er andere programma's nodig om deze informatie te verzamelen.
