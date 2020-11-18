@@ -1,3 +1,5 @@
+![Logo Eindhoven](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finnosportlabsportenbeweeg.nl%2Fwp-content%2Fuploads%2F2018%2F06%2FGemeente-Eindhoven2489-png.png&f=1&nofb=1)
+
 # Het doel van dit programma
 Dit project verzamelt/schraapt alle moties van de gemeente Eindhoven en maakt er een overzichtelijk CSV-bestand van. Dit CSV-bestand kan geopend worden in Excel.
 ___
@@ -13,7 +15,7 @@ De module `scraper.py` schraapt alle informatie uit een tabel die te vinden is o
 ___
 ## Wat doet pdf_scraper.py ? 
 De module `pdf_scraper.py` schraapt de stemresultaten uit het pdf-bestand van een motie en geeft deze terug aan het programma site_scraper.py.
-
+___
 ## Wat doet pdf_downloader.py ? 
 De module `pdf_downloader.py` download pdf-bestanden van het internet.
 ___
